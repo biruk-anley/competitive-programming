@@ -1,0 +1,17 @@
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        main=[]
+        di={}
+        for i in reversed(range(len(nums2))):
+            while main and main[-1]<=nums2[i]:
+                main.pop()
+            if main != []:
+                di[nums2[i]]=main[-1]
+            main.append(nums2[i])
+        an = [-1]*len(nums1)
+        for i in range(len(nums1)):
+            if nums1[i] in di.keys():
+                an[i] = di[nums1[i]]
+        return an
+    
+                
