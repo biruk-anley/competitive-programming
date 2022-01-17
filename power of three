@@ -1,0 +1,12 @@
+class Solution:
+    def countGoodNumbers(self, n: int) -> int:
+        
+        if n==1:
+            return 5 
+        elif(n==2):
+            return 5*4
+        elif (n%2==0):
+            return 4* self.countGoodNumbers(n-1)
+        else:
+            return 5* self.countGoodNumbers(n-1)
+        
